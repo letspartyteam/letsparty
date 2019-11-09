@@ -36,7 +36,8 @@ export default class LoginScreen extends React.Component {
 
   watchAuthState(navigation) {
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log('onAuthStatheChanged: ', user)      
+      console.log('onAuthStatheChanged: ', user)
+      
       if (user) {
         navigation.navigate('Main');
       }
@@ -44,22 +45,12 @@ export default class LoginScreen extends React.Component {
   }
 
   createUser() {
-    FirebaseAPI.createUser(this.state.email, this.state.password);
-    alert('Invalid username or password');
-    /*try{
     FirebaseAPI.createUser(this.state.email, this.state.password)
-    }catch(err){
-      alert('Invalid username or password'); }*/
-    }
+  }
 
   signIn() {
     FirebaseAPI.signInUser(this.state.email, this.state.password)
-    /*try{
-      FirebaseAPI.signInUser(this.state.email, this.state.password)
-      }catch(err){
-        alert('Invalid username or password'); }*/
-      }
-  
+  }
 
   render() {
     return (
